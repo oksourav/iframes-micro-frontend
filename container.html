@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="style.css" />
+<iframe src="./navigation/index.html" id="navigation"></iframe>
+<iframe src="./stats/index.html" id="stats"></iframe>
+<script>
+  const sendReceivedMessageToAllIframes = (event) => {
+    document
+      .querySelectorAll("iframe")
+      .forEach((iframe) => iframe.contentWindow.postMessage(event.data, "*"));
+  };
+  window.addEventListener("message", sendReceivedMessageToAllIframes);
+</script>
